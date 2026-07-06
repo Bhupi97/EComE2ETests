@@ -1,5 +1,5 @@
 import { test as base } from "@playwright/test";
-import { HomePage } from "../pages/homepage";
+import { HomePage } from "../pages/homePage";
 import { SignUpLoginPage } from "../pages/signUpLoginPage";
 import { SignupPage } from "../pages/signupPage";
 import { AccountProcessingPage } from "../pages/accountProcessingPage";

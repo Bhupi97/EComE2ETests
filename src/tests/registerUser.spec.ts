@@ -1,8 +1,4 @@
 import {test, expect} from "../fixtures/baseTest";
-// import { HomePage } from "../pages/homepage";
-// import { SignUpLoginPage } from "../pages/signUpLoginPage";
-// import { SignupPage } from "../pages/signupPage";
-// import { AccountProcessingPage } from "../pages/accountProcessingPage";
 import testData from "../data/registerUser.json";
 
 test("TC1: Register User", async ({homePage, signUpLoginPage, signupPage, accountProcessingPage, page })=> {
