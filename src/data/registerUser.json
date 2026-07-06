@@ -1,0 +1,26 @@
+{
+  "validUser": {
+    "title": "Mr.",
+    "name": "Bhupinder Partap Singh",
+    "email": "bhupinder.test@example.com",
+    "firstName": "Bhupinder",
+    "lastName": "Singh",
+    "company": "Automation Corp",
+    "address": "123 Tester Street",
+    "country": "Canada",
+    "state": "Ontario",
+    "city": "Toronto",
+    "zipcode": "90001",
+    "mobileNumber": "1234567890",
+    "newsletter": true,
+    "specialOffers": false,
+    "password": "Bp654321",
+    "dob": "1999-01-10"
+  },
+  "invalidUser": {
+    "name": "Invalid User",
+    "email": "malformed-email.com",
+    "firstName": "Bad",
+    "lastName": "Data"
+  }
+}
