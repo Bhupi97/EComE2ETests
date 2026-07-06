@@ -6,6 +6,7 @@ export class HomePage {
     public readonly logoAltText: Locator;
     private readonly usernameDisplay: Locator;
     private readonly deleteAccount: Locator;
+    private readonly logoutButton: Locator;
 
     constructor(public readonly page: Page) {
         this.signUpLoginLink = page.getByRole("link", {name: " Signup / Login"});
@@ -13,9 +14,11 @@ export class HomePage {
         this.logoAltText = page.getByAltText("Website for automation practice");
         this.usernameDisplay = page.getByText(/Logged in as/i);
         this.deleteAccount = page.getByRole("link", {name: " Delete Account"});
+        this.logoutButton = page.getByRole("link", {name: " Logout"});
+
     }
 
-    public async gotoHome() {
+    public async gotoHome(): Promise<void>  {
         await this.page.goto('/');
     }
 
@@ -28,6 +31,10 @@ export class HomePage {
 
     public async clickDeleteAccount(): Promise<void> {
         await this.deleteAccount.click();
+    }
+
+    public async clickLogout(): Promise<void> {
+        await this.logoutButton.click();
     }
 
 
