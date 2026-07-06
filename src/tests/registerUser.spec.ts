@@ -9,10 +9,6 @@ test("TC1: Register User and Clean up Account", async ({
 }) => {
     const user = testData.validUser;
     
-    // Enterprise Tip: Dynamically appending a timestamp to the email 
-    // ensures the test remains repeatable without manual database resets.
-    const uniqueEmail = `test_${Date.now()}@example.com`; 
-
     await test.step("Navigate to Landing Page", async () => {
         await homePage.gotoHome();
         await expect(homePage.logoAltText).toBeVisible(); 
@@ -22,7 +18,7 @@ test("TC1: Register User and Clean up Account", async ({
         await homePage.gotoSignupLogin();
         await expect(signUpLoginPage.signupFormHeading).toHaveText("New User Signup!");
         await signUpLoginPage.fillName(user.name);
-        await signUpLoginPage.fillSignUpEmail(uniqueEmail); 
+        await signUpLoginPage.fillSignUpEmail(user.email); 
         await signUpLoginPage.clickSignup();
     });
 
@@ -30,8 +26,8 @@ test("TC1: Register User and Clean up Account", async ({
         await expect(signupPage.accountInfoHeader).toHaveText("Enter Account Information");
         await expect(signupPage.nameField).toHaveValue(user.name);
         
-        // Use uniqueEmail here to match what was entered in the step above
-        await expect(signupPage.emailField).toHaveValue(uniqueEmail); 
+        // Use user.email here to match what was entered in the step above
+        await expect(signupPage.emailField).toHaveValue(user.email); 
         
         await signupPage.selectTitle(user.title);
         await signupPage.setPassword(user.password);
