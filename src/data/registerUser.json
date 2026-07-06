@@ -19,8 +19,9 @@
   },
   "invalidUser": {
     "name": "Invalid User",
-    "email": "malformed-email.com",
+    "email": "incorrect@email.com",
     "firstName": "Bad",
-    "lastName": "Data"
+    "lastName": "Data",
+    "password": "12345678"
   }
 }

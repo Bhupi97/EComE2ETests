@@ -10,6 +10,7 @@ export class SignUpLoginPage {
     private readonly signupHeading: Locator;
     private readonly loginHeading: Locator;
     private readonly loginButton: Locator;
+    private readonly errorMsg: Locator;
 
     constructor(public readonly page: Page) {
         this.signupName = page.getByRole("textbox", {name: "name"});
@@ -21,6 +22,11 @@ export class SignUpLoginPage {
         this.loginEmail = page.getByTestId("login-email");
         this.loginPassword = page.getByTestId("login-password");
         this.loginButton = page.getByTestId("login-button");
+        this.errorMsg = page.locator('//*[@id="form"]//p');
+    }
+
+    public get errorMessage(): Locator {
+        return this.errorMsg;
     }
 
     public get signupFormHeading(): Locator {
