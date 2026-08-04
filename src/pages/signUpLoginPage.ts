@@ -19,10 +19,9 @@ export class SignUpLoginPage {
         this.loginEmail = page.getByTestId("login-email");
         this.signupHeading = page.locator('.signup-form').getByRole('heading', { level: 2 });
         this.loginHeading = page.locator('.login-form').getByRole('heading', { level: 2 });
-        this.loginEmail = page.getByTestId("login-email");
         this.loginPassword = page.getByTestId("login-password");
         this.loginButton = page.getByTestId("login-button");
-        this.errorMsg = page.locator('//*[@id="form"]//p');
+        this.errorMsg = page.locator('.signup-form p, .login-form p, #form p');
     }
 
     public get errorMessage(): Locator {

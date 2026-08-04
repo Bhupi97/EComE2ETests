@@ -36,28 +36,6 @@ export default defineConfig({
     launchOptions: {
       args: ['--disable-extensions'] 
     },
-    // Intercept and abort any requests matching common ad networks
-    route: [
-      {
-        url: '/**/*',
-        handler: async (route, request) => {
-          const url = request.url();
-          if (
-            url.includes('google-analytics') || 
-            url.includes('googlesyndication') || 
-            url.includes('googleads') || 
-            url.includes('pagead') || 
-            url.includes('doubleclick') ||
-            url.includes('adservice')
-          ) {
-            // Drop the ad request entirely so it never renders on the screen
-            await route.abort(); 
-          } else {
-            await route.continue();
-          }
-        }
-      }
-    ]
   },
 
   /* Configure projects for major browsers */
