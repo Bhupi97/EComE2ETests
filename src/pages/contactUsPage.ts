@@ -10,7 +10,6 @@ export class ContactUs {
     private readonly submitBtn: Locator;
     private readonly successMsg: Locator;
 
-
     constructor(public readonly page: Page) {
         this.getInTouchHeader = page.locator(".contact-form").getByRole("heading", {level: 2});
         this.name = page.getByTestId("name");
@@ -27,7 +26,7 @@ export class ContactUs {
     }
 
     public get getSuccessMsg(): Locator {
-        return this.successMsg;
+        return this.successMsg.first();
     }
 
     public async fillName(name: string) {
