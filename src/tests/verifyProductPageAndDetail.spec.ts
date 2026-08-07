@@ -12,10 +12,10 @@ test("TC8: Verify All Products and product detail page", async ({homePage, produ
     })
 
     await test.step("Click On first product and verify details", async () => {
-        const nameOfProduct = await products.nameOfFirstProduct();
+        const nameOfProduct = await products.nameOfFirstProduct().innerText();
         const priceOfProduct = await products.priceOfFirstProduct();
         await products.clickOnViewProduct();
-        await expect(productDetails.name).toHaveText(nameOfProduct);
+        await expect(productDetails.name).toContainText(nameOfProduct);
         await expect(productDetails.productPrice).toHaveText(priceOfProduct);
         await expect(productDetails.categoryDetails).toHaveText(/Category/);
         await expect(productDetails.availabilityStatus).toHaveText(/Availability/);

@@ -7,6 +7,7 @@ import { ContactUs } from "../pages/contactUsPage";
 import { TestCases } from "../pages/testCasesPage";
 import { Products } from "../pages/productsPage";
 import { ProductDetails } from "../pages/productDetailsPage";
+import { Footer } from "../pages/footer";
 
 
 
@@ -18,7 +19,8 @@ type MyFixtures= {
     contactUsPage: ContactUs;
     testCases: TestCases;
     products: Products;
-    productDetails: ProductDetails
+    productDetails: ProductDetails;
+    footer: Footer;
 };
 
 export const test = base.extend<MyFixtures>({
@@ -50,7 +52,8 @@ export const test = base.extend<MyFixtures>({
     contactUsPage: async ({page}, use) => {await use(new ContactUs(page));},
     testCases: async ({page}, use) => {await use(new TestCases(page));},
     products: async ({page}, use) => {await use(new Products(page));},
-    productDetails: async ({page}, use) => {await use(new ProductDetails(page));}
+    productDetails: async ({page}, use) => {await use(new ProductDetails(page));},
+    footer: async ({page}, use) => {await use(new Footer(page));}
 })
 
 export {expect} from "@playwright/test";
