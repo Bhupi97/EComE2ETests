@@ -10,6 +10,7 @@ export class HomePage {
     private readonly contactUsButton: Locator;
     private readonly testCasesButton: Locator;
     private readonly products: Locator;
+    private readonly cartButton: Locator;
 
     constructor(public readonly page: Page) {
         this.signUpLoginLink = page.getByRole("link", {name: " Signup / Login"});
@@ -21,6 +22,7 @@ export class HomePage {
         this.contactUsButton = page.getByRole("link", {name: " Contact us"});
         this.testCasesButton = page.getByRole("link", {name: " Test Cases"}).first();
         this.products = page.getByRole("link", {name: " Products"});
+        this.cartButton = page.getByRole("link", {name: " Cart"});
     }
 
     public async gotoHome(): Promise<void>  {
@@ -54,5 +56,8 @@ export class HomePage {
         await this.testCasesButton.click();
     }
 
+    public async clickCartBtn(): Promise<void> {
+        await this.cartButton.click();
+    }
 
 }

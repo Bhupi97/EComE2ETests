@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
 
 export class Products {
     private readonly allProductsHeading: Locator;
@@ -8,6 +8,11 @@ export class Products {
     private readonly priceOfProduct: Locator;
     private readonly searchInput: Locator;
     private readonly searchBtn: Locator;
+    private readonly firstProductCartBtn: Locator;
+    private readonly secondProductCartBtn: Locator;
+    private readonly successModal: Locator;
+    private readonly continueShoppingBtn: Locator;
+    private readonly viewCartLink: Locator;
 
     constructor(public readonly page: Page) {
         this.allProductsHeading = page.locator(".features_items").getByRole("heading", {name: 'All Products'});
@@ -17,6 +22,32 @@ export class Products {
         this.priceOfProduct = page.locator(".single-products h2");
         this.searchInput = page.getByPlaceholder("Search Product");
         this.searchBtn = page.locator("#submit_search");
+        this.firstProductCartBtn = page.locator('a.add-to-cart[data-product-id="1"]');
+        this.secondProductCartBtn = page.locator('a.add-to-cart[data-product-id="2"]');
+        this.successModal = page.locator("#cartModal");
+        this.continueShoppingBtn = page.getByRole("button", { name: "Continue Shopping" });
+        this.viewCartLink = page.getByRole("link", { name: "View Cart" });
+    }
+
+    public get firstProductCart(): Locator {
+        return this.firstProductCartBtn.first();
+    }
+
+    public get secondProductCart(): Locator {
+        return this.secondProductCartBtn.first();
+    }
+
+    public async verifyModalIsVisible(): Promise<void> {
+        await expect(this.successModal).toBeVisible();
+    }
+
+    public async clickContinueShopping(): Promise<void> {
+        await this.continueShoppingBtn.click();
+        await expect(this.successModal).not.toBeVisible();
+    }
+
+    public async clickViewCart(): Promise<void> {
+        await this.viewCartLink.click();
     }
 
     public get productsHeading(): Locator {
