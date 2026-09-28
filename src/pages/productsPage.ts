@@ -29,12 +29,8 @@ export class Products {
         this.viewCartLink = page.getByRole("link", { name: "View Cart" });
     }
 
-    public get firstProductCart(): Locator {
-        return this.firstProductCartBtn.first();
-    }
-
-    public get secondProductCart(): Locator {
-        return this.secondProductCartBtn.first();
+    public addProductToCart(n: number): Locator {
+    return this.page.locator('a.add-to-cart').nth(n);
     }
 
     public async verifyModalIsVisible(): Promise<void> {
@@ -62,12 +58,12 @@ export class Products {
         await this.firstViewProductBtn.click();
     }
 
-    public nameOfFirstProduct(): Locator {
-        return this.nameOfProduct.first();
+    public nameOfNthProduct(n: number): Locator {
+        return this.nameOfProduct.nth(n);
     }
 
-    async priceOfFirstProduct(): Promise<string> {
-        return await this.priceOfProduct.first().innerText();
+    public priceOfNthProduct(n: number): Locator {
+        return this.priceOfProduct.nth(n);
     }
 
     public async searchProduct(productName: string) {
@@ -77,6 +73,4 @@ export class Products {
     public async submitSearch(): Promise<void> {
         await this.searchBtn.click();
     }
-
-
 }

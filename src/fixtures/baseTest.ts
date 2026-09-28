@@ -8,6 +8,7 @@ import { TestCases } from "../pages/testCasesPage";
 import { Products } from "../pages/productsPage";
 import { ProductDetails } from "../pages/productDetailsPage";
 import { Footer } from "../pages/footer";
+import { CartPage } from "../pages/cartPage";
 
 
 
@@ -21,6 +22,7 @@ type MyFixtures= {
     products: Products;
     productDetails: ProductDetails;
     footer: Footer;
+    cart: CartPage;
 };
 
 export const test = base.extend<MyFixtures>({
@@ -53,7 +55,8 @@ export const test = base.extend<MyFixtures>({
     testCases: async ({page}, use) => {await use(new TestCases(page));},
     products: async ({page}, use) => {await use(new Products(page));},
     productDetails: async ({page}, use) => {await use(new ProductDetails(page));},
-    footer: async ({page}, use) => {await use(new Footer(page));}
+    footer: async ({page}, use) => {await use(new Footer(page));},
+    cart: async ({page}, use) => {await use(new CartPage(page));}
 })
 
 export {expect} from "@playwright/test";
