@@ -1,7 +1,7 @@
 import { test, expect } from "../fixtures/baseTest";
 
 
-test("TC9: Search Product", async ({homePage, products, productDetails})=> {
+test("TC9: Search Product", async ({homePage, products})=> {
     await test.step("Navigate to Landing Page", async () => {
         await homePage.gotoHome();
         await expect(homePage.logoAltText).toBeVisible();
@@ -16,7 +16,7 @@ test("TC9: Search Product", async ({homePage, products, productDetails})=> {
         await products.searchProduct("Stylish Dress");
         await products.submitSearch();
         await expect(products.searchProductHeading).toHaveText("Searched Products");
-        await expect(products.nameOfFirstProduct()).toContainText("Stylish");
+        await expect(products.nameOfNthProduct(0)).toContainText("Stylish");
     } )
 
 })

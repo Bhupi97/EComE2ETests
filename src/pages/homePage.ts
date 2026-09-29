@@ -11,6 +11,7 @@ export class HomePage {
     private readonly testCasesButton: Locator;
     private readonly products: Locator;
     private readonly cartButton: Locator;
+    private readonly viewProduct: Locator;
 
     constructor(public readonly page: Page) {
         this.signUpLoginLink = page.getByRole("link", {name: " Signup / Login"});
@@ -23,6 +24,7 @@ export class HomePage {
         this.testCasesButton = page.getByRole("link", {name: " Test Cases"}).first();
         this.products = page.getByRole("link", {name: " Products"});
         this.cartButton = page.getByRole("link", {name: " Cart"});
+        this.viewProduct = page.getByRole("link", { name: "View Product" });
     }
 
     public async gotoHome(): Promise<void>  {
@@ -58,6 +60,10 @@ export class HomePage {
 
     public async clickCartBtn(): Promise<void> {
         await this.cartButton.click();
+    }
+    
+    public async clickViewProduct(n: number): Promise<void> {
+    await this.viewProduct.nth(n).click();
     }
 
 }

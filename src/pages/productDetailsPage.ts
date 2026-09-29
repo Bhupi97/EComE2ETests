@@ -7,6 +7,8 @@ export class ProductDetails {
     private readonly availability: Locator;
     private readonly condition: Locator;
     private readonly brand: Locator;
+    private readonly quantity: Locator;
+    private readonly addToCartBtn: Locator;
 
     constructor(public readonly page: Page) {
         this.priceText = page.locator('.product-information span span');
@@ -15,6 +17,8 @@ export class ProductDetails {
         this.availability = page.locator('.product-information p', { hasText: 'Availability:' });
         this.condition = page.locator('.product-information p', { hasText: 'Condition:' });
         this.brand = page.locator('.product-information p', { hasText: 'Brand:' });
+        this.quantity = page.locator('#quantity');
+        this.addToCartBtn = page.getByRole('button', { name : "Add to cart" });
     }
 
     public get productPrice(): Locator {
@@ -39,5 +43,13 @@ export class ProductDetails {
 
     public get brandName(): Locator {
         return this.brand;
+    }
+
+    public async updateQuantity(n: number): Promise<void> {
+        await this.quantity.fill(n.toString());
+    }
+
+    public async clickAddToCart(): Promise<void>  {
+        await this.addToCartBtn.click();
     }
 }

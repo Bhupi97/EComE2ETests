@@ -1,7 +1,7 @@
 import { test, expect } from "../fixtures/baseTest";
 import userData from "../data/registerUser.json";
 
-test("TC12: Verify Add products in cart", async ({ homePage, products, cart, page }) => {
+test("TC12: Verify Add products in cart", async ({ homePage, products, cart }) => {
     const user = userData.validUser;
 
     let nameOfFirstItem: string;
