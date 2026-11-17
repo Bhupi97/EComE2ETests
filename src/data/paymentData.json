@@ -1,0 +1,9 @@
+{
+  "validCard": {
+    "nameOnCard": "Test User",
+    "cardNumber": "123456789876564",
+    "cvc": "121",
+    "expiryMonth": "11",
+    "expiryYear": "2030"
+  }
+}

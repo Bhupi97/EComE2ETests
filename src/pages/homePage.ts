@@ -23,7 +23,7 @@ export class HomePage {
         this.contactUsButton = page.getByRole("link", {name: " Contact us"});
         this.testCasesButton = page.getByRole("link", {name: " Test Cases"}).first();
         this.products = page.getByRole("link", {name: " Products"});
-        this.cartButton = page.getByRole("link", {name: " Cart"});
+        this.cartButton = page.getByRole("link", {name: " Cart"}).first();
         this.viewProduct = page.getByRole("link", { name: "View Product" });
     }
 

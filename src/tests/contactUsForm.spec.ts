@@ -12,6 +12,7 @@ test("TC6: Contact Us Form", async ({homePage, contactUsPage, page})=> {
 
     await test.step("Click contact us and submit form", async () => {
         await homePage.clickContactUs();
+        await page.waitForLoadState("load");
         await expect(contactUsPage.getInTouchHeading).toHaveText("Get In Touch");
         await contactUsPage.fillName(contact.name);
         await contactUsPage.fillEmail(contact.email);

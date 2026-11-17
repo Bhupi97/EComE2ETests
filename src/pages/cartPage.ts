@@ -9,6 +9,9 @@ export class CartPage {
     private readonly priceOfSecondProduct;
     private readonly quantityOfSecondProduct;
     private readonly totalPriceOfSecondProduct;
+    private readonly proceedToCheckout;
+    private readonly checkoutModal;
+    private readonly DialogRegisterLoginLink;
 
     constructor (public readonly page: Page) {
         this.nameOfFirstProduct = page.locator("#product-1 .cart_description h4 a");
@@ -19,6 +22,9 @@ export class CartPage {
         this.priceOfSecondProduct = page.locator("#product-2 .cart_price p");
         this.quantityOfSecondProduct = page.locator("#product-2 .cart_quantity button");
         this.totalPriceOfSecondProduct = page.locator("#product-2 .cart_total_price");
+        this.proceedToCheckout = page.getByText('Proceed To Checkout', { exact: true});
+        this.checkoutModal = page.locator('#checkoutModal');
+        this.DialogRegisterLoginLink = this.checkoutModal.getByRole('link', { name: 'Register / Login' });
     }
 
     public get firstProductName(): Locator {
@@ -52,5 +58,18 @@ export class CartPage {
     public get secondProductTotalPrice(): Locator {
         return this.totalPriceOfSecondProduct;
     }
+
+    public async clickProceedToCheckout(): Promise<void> {
+        await this.proceedToCheckout.click();
+    }
+
+    public get checkoutModelLocator(): Locator {
+        return this.checkoutModal;
+    }
+
+    public async clickDialogRegisterLoginLink(): Promise<void> {
+        await this.DialogRegisterLoginLink.click();
+    }
+
 
 }
