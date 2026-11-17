@@ -3,7 +3,7 @@
 An enterprise-grade, scalable automation framework built using **Playwright**, **TypeScript**, and **Node.js** to validate complex user workflows on an e-commerce platform.
 
 > 🛠️ **Project Status: Work-In-Progress (WIP)** > This framework is actively being developed. The core infrastructure is complete, utilizing robust object-oriented patterns, custom dependency injection fixtures, and structural parallel processing safeguards. 
-> **Current Progress:** 3 / 26 End-to-End Core Business Workflows Automated.
+> **Current Progress:** 14 / 26 End-to-End Core Business Workflows Automated.
 
 ---
 
